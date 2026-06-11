@@ -1,10 +1,15 @@
-﻿using GymSystem.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using GymSystem.DAL.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace GymSystem.Configuration
+namespace GymSystem.DAL.Configurations
 {
-    public class PlanConfiguration : IEntityTypeConfiguration<Plan>
+    public class PlanConfigurations:IEntityTypeConfiguration<Plan>
     {
         public void Configure(EntityTypeBuilder<Plan> builder)
         {
@@ -13,7 +18,7 @@ namespace GymSystem.Configuration
             builder.Property(p => p.Price).HasPrecision(10, 2);
             builder.Property(p => p.CreatedAt).HasDefaultValueSql("GetDate()");
 
-            builder.ToTable(tb => 
+            builder.ToTable(tb =>
             {
                 tb.HasCheckConstraint("DurationCheckValue", "Duration Between 1 and 365");
             });
