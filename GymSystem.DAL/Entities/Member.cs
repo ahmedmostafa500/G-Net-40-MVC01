@@ -5,7 +5,7 @@ namespace GymSystem.DAL.Entities
 {
     public class Member:GymUser
     {
-        public string photo { get; set; } = null!;
+        public string? photo { get; set; } = null!;
         public HealthRecord healthRecord { get; set; } = null!;
 
         public ICollection<MemberShip>memberShips=new HashSet<MemberShip>();

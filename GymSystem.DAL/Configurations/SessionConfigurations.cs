@@ -23,7 +23,9 @@ namespace GymSystem.DAL.Configurations
 
             builder.HasOne(X => X.Trainer)
                 .WithMany(X => X.sessions)
-                .HasForeignKey(X => X.TrainerId);
+                .HasForeignKey(X => X.TrainerId)
+                .OnDelete(DeleteBehavior.NoAction);
+
 
             builder.HasOne(X => X.Category)
                 .WithMany(X => X.sessions)

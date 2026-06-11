@@ -9,7 +9,7 @@ namespace GymSystem.DAL.Entities
     public class Sessions:BaseEntity
     {
         public string Descriotion { get; set; } = null!;
-        public int Capicity { get; set; }
+        public int Capacity { get; set; }
 
         public DateTime StartDate { get; set; }
 

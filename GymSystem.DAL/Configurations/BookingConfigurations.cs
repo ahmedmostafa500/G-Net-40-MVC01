@@ -20,11 +20,15 @@ namespace GymSystem.DAL.Configurations
 
             builder.HasOne(X => X.Sessions)
                    .WithMany(X => X.bookings)
-                   .HasForeignKey(X => X.SessionId);
+                   .HasForeignKey(X => X.SessionId)
+                   .OnDelete(DeleteBehavior.NoAction);
+
 
             builder.HasOne(X => X.Member)
                    .WithMany(X => X.bookings)
-                   .HasForeignKey(X => X.MemberId);
+                   .HasForeignKey(X => X.MemberId)
+                   .OnDelete(DeleteBehavior.NoAction);
+
 
             builder.HasKey(X => new { X.SessionId, X.MemberId });
         }

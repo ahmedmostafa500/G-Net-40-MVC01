@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GymSystem.DAL.Migrations
 {
     [DbContext(typeof(GymDbcontext))]
-    [Migration("20260525160940_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20260611145145_FixSessionCapacity")]
+    partial class FixSessionCapacity
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -287,7 +287,7 @@ namespace GymSystem.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Capicity")
+                    b.Property<int>("Capacity")
                         .HasColumnType("int");
 
                     b.Property<int>("CategoryId")
@@ -331,7 +331,6 @@ namespace GymSystem.DAL.Migrations
                     b.HasBaseType("GymSystem.DAL.Entities.GymUser");
 
                     b.Property<string>("photo")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasIndex("Email")
